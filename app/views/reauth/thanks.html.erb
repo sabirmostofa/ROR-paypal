@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>PayPal Ruby on Rails SDK - Do ReAuthorization API</title>
+    <link href="sdk.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<br>
+		<center>
+		<font size=2 color=black face=Verdana><b>Do ReAuthorization</b></font>
+		<br><br>
+<b>ReAuthorization Done!!</b><br><br>
+    <table>	
+<% @response.each do |k,v| %>
+<tr><td><%= "#{k}" %>:</td><td><%= "#{v}" %></td>
+ <% end -%>
+</table>
+    </center>
+    
+    <a class="home" <%= link_to "Home", :controller =>"wppro", :action => "index" %></a>
+     
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,27 @@
+<div id="page">
+<h3 align="center">TransactionSearch API</h3>  
+<%=  form_tag (transactionSearch_path, :method=>'post', :multipart => true, :id =>'TransactionSearchForm', :name => 'TransactionSearchForm') do %>
+<table align="center">
+<tr>
+    <td><label for="startDate">StartDate:</label> </td> <td> 
+<%= text_field_tag( "startDate", value = @yesterday,:size => 10, :maxlength => 10) %>(Required) </td>  
+</tr>
+<tr>
+    <td><label for="endDate">EndDate:</label> </td> 
+<td> 
+<%= text_field_tag( "endDate", value = @today,:size => 10, :maxlength => 10) %> YYYY-MM-DD
+</td>    
+</tr>
+<tr>
+    <td><label for="transactionID">TransactionID:</label> </td>
+     <td><%= text_field_tag( "transactionID", value = '') %></td>
+</tr>
+<tr>
+    <td></td><td><%= submit_tag('Search')%></td>    
+</tr>
+</table>
+<%end%>
+</dl>
+<%= link_to "Home", {:controller =>"wppro", :action => "index"}, :id => 'CallsLink' %>
+</div> 
+

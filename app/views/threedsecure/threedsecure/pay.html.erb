@@ -1,0 +1,102 @@
+<div id="page">
+<h3 align= "center">3D secure Payment</h3>  
+<%= javascript_include_tag 'creditcard' %>
+<%=  form_tag (threedSecure_path, :method=>'post', :multipart => true, :id =>'ThreeDsecureForm', :name => 'ThreeDsecureForm') do %>
+<%= hidden_field_tag 'PAYMENTACTION', @payment_action %>
+<table align="center">
+<tr>
+    <td><label for="firstName">First Name:</label></td>
+    <td><%= text_field_tag( "firstName", value = 'Ruby',:size => 30, :maxlength => 32) %></td>
+</tr>
+<tr>
+    <td><label for="lastName">Last Name:</label></td>
+	<td><%= text_field_tag( "lastName", value = 'Rails',:size => 30, :maxlength => 32) %></td>
+</tr>
+<tr>
+    <td><label for="creditCardType">Card Type:</label></td>
+    <td> <%= select_tag("creditCardType", options_for_select(["Maestro","Visa","MasterCard"],"Maestro"),{:onChange => 'generateCC(this.form)'} )%> </td>
+</tr>
+<tr>
+    <td><label for="creditCardNumber">Card Number:</label></td>
+    <td><%=text_field_tag("creditCardNumber" ,'', {:size => 19, :maxlength => 19,:value=>'3443408345051340'})%> </td> 
+</tr>
+<tr>  
+    <td><label for="Start Date">Start Date:</label></td><td>    <%=start_month_select_for(:threeDsecure) %>  <%=start_year_select_for(:threeDsecure) %> </td>
+</tr>
+<tr>  
+    <td><label for="Expiration Date">Expiration Date:</label></td>
+    <td><%=month_select_for(:threeDsecure) %>  <%=year_select_for(:threeDsecure) %> </td>
+</tr>
+<tr>    
+    <td><label for="cvv2Number">Card Verification Number:</label></td>
+    <td><%= text_field_tag( "cvv2Number", value = '962',:size => 4, :maxlength => 4) %> </td>  
+</tr>
+	<tr>
+ 		<td>Billing Address:</td>
+	</tr>
+<tr>   
+    <td><label for="address1">Address 1:</label></td>
+    <td><%= text_field_tag( "address1", value = '1 Main St',:size => 30, :maxlength => 100 ) %></td>    
+</tr>
+<tr>
+    <td><label for="address2">Address 2:</label></td>
+    <td><%= text_field_tag( "address2", value = '',:size => 30, :maxlength => 100 ) %> (Optional) </td>    
+</tr>
+<tr>
+    <td><label for="city">City:</label></td>
+    <td><%= text_field_tag( "city", value = 'London',:size => 25, :maxlength => 100 ) %></td>  
+</tr>
+<tr>
+    <td><label for="state">State:</label></td>
+    <td><%= text_field_tag( "state", value = 'London',:size => 25, :maxlength => 100 ) %></td>  
+</tr>
+<tr>
+    <td><label for="zip">Zip Code:</label></td>
+    <td><%= text_field_tag( "zip", value = 'WC2H 7LA',:size => 25, :maxlength => 32 ) %>(5 or 9 digits) </td>   
+</tr>
+<tr>
+    <td><label for="countrycode">Country: </label></td>
+    <td>United Kingdom</td> 
+</tr>
+<tr>  
+    <td><label for="amount">Amount:</label></td>
+   <td><%= text_field_tag( "amount", value = '1.00',:size => 4, :maxlength => 7 ) %> 
+   <%= select_tag("currency", options_for_select(["USD","GBP", "EUR", "JPY"],"GBP"))%>
+    </td>  
+</tr>      
+<tr>
+<td>
+ 3D Secure:  
+</td>
+</tr> 
+<tr>
+    <td><label for="eciFlag">EciFlag:</label></td>
+    <td><%= text_field_tag( "eciFlag", value = '',:size => 40, :maxlength => 100 ) %></td> 
+</tr>
+<tr>
+    <td><label for="cavv">Cavv:</label></td>
+    <td> <%= text_field_tag( "cavv", value = '',:size => 30, :maxlength => 100 ) %></td> 
+</tr>
+<tr>
+    <td><label for="xid">Xid:</label></td>
+<td> <%= text_field_tag( "xid", value = '',:size => 40, :maxlength => 100 ) %></td>  
+</tr>
+<tr>
+    <td><label for="enrolled">MPIVendor3DS:</label></td>
+    <td><%= text_field_tag( "enrolled", value = '',:size => 40, :maxlength => 100 ) %></td>  
+</tr>
+<tr>
+    <td><label for="pAResStatus">AuthStatus3D:</label></td>
+    <td><%= text_field_tag( "pAResStatus", value = '',:size => 30, :maxlength => 100 ) %></td>   
+</tr>
+<tr>
+    <td></td><td><%= submit_tag('Submit')%></td>
+</tr>
+</table>
+<% end %>
+
+<%= link_to "Home", {:controller =>"/wppro", :action => "index"}, :id => 'CallsLink' %>
+</div>
+
+
+

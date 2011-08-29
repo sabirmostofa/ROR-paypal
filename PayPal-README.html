@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title>PayPal Ruby on Rails SDK</title>
+	</head>
+<body>
+	<h1 align='center'> PayPal Ruby on Rails SDK </h1>
+	<h2>PayPal Ruby on Rails SDK for NVP API</h2>
+		<p>
+		The PayPal's Software Developer Kit (SDK) eases the process of integrating PayPal's
+		financial services into your application by providing a small footprint of three files
+		caller.rb, profile.rb, and utils.rb. These three files are developed as a plug-in.
+		These files are located under PayPalSDK/lib folder which is under Vendor/plugins folder.
+		The plug-in supports only 3-token credentials at this time.
+		The SDK comes with web samples written for Rails which illustrates how to use PayPal NVP Web Services API
+		including examples for Direct Payment, Express Checkout, TransactionSearch, Refund, Void, and Capture.
+		The Sample application does not use a database hence it is not a typical Rails application.
+		<br><br>The latest upgrades, FAQs and announcements can always be found at:
+		<a href='http://www.paypal.com/sdk'>Tools for PayPal Developers</a>
+	</p>
+	<h2>Documentation</h2>
+	<p>
+		<a href='https://www.paypal.com/mts'>PayPal Integration Center</a>
+		<br><a href='https://www.paypal.com/IntegrationCenter/ic_documentation.html'>PayPal User Guides</a>
+		<br><a href='doc/index.html'>API Documentation</a>
+
+  	</p>
+  	<h2>Required Software</h2>
+  	<h3>Ruby 1.8.7 or Higher</h3>
+	<p> Note: The code does not depend on 1.8.6 features, but developed using this version, it may very well work with earlier versions.
+		<a href='http://www.ruby-lang.org/en/downloads'>Download</a>
+	</p>
+	<h3>Rails 3.0.1</h3>
+	<p>
+		Note: The code does not depend on 3.0.1 features, but developed using this version, it may very well work with earlier versions.
+		<a href='http://rubyforge.org/frs/?group_id=307'>Download</a>
+	</p>
+    <h2>Installation</h2>
+    <p>
+       1) Unzip the file for example to c:\ <br>
+	 2) On command prompt, cd to c:\PayPal_Ruby_SDK <br>
+	 3) Run the command rails server <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; You can see the folllowing once the server has started: <br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Rails application started on http://0.0.0.0:3000<br>
+
+	   4) Open a browser and type http://IP ADDRESS of your machine:3000 on the address bar and hit return button. <br>
+    </p>
+    <h2>Configuration for using certificate</h2>
+	<p>
+		1) In "vendor\plugins\payal_sdk\lib\caller.rb" file change <i> http.verify_mode=OpenSSL::SSL::VERIFY_NONE</i> to <i>http.verify_mode=OpenSSL::SSL::VERIFY_PEER</i><br>
+		2) Uncomment the following lines of code <br>
+			    &nbsp;&nbsp;&nbsp<i>#cert = File.read("sdk-seller_cert_key.pem")</i><br>
+    			    &nbsp;&nbsp;&nbsp<i>#http.ca_file = 'api_cert_chain.crt'</i><br>
+                      &nbsp;&nbsp;&nbsp<i>#http.cert = OpenSSL::X509::Certificate.new(cert)</i><br>
+                      &nbsp;&nbsp;&nbsp<i>#http.key = OpenSSL::PKey::RSA.new(cert)</i><br>
+                      &nbsp;&nbsp;&nbsp<i>#http.cert.verify(http.key)</i><br>
+		3) In "vendor\plugins\payal_sdk\lib\profile.rb" use the credentials for certificate and change the endpoint to "api.sandbox.paypal.com"
+	</p>
+	<h2>Sample/Unit Test</h2>
+	<p>
+		Units tests for CreditCardPayment and GetTrannsactionDetails APIs are in test/unit/dcc_unit.rb file. <br>
+		The unit tests very well serve as a sample which illustrates how to make PayPal API calls.<br>
+		For Example, the following code snippet illustrates how to make gettransactiondetails API call. <br><br>
+		 &nbsp;&nbsp;&nbsp;&nbsp;req = { :method        => 'gettransactionDetails', <br>
+		 &nbsp;&nbsp;&nbsp;&nbsp;        :transactionid => '20P46879S1049380U' <br>
+		 &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+		 &nbsp;&nbsp;&nbsp;&nbsp;@transaction = @caller.call(req) <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;if @transaction.response.success? do end <br>
+
+	</p>
+	<h2>
+    Proxy Support
+    </h2><p>
+    Proxy support has been added for environments behind an HTTP proxy server. <br>
+    If the calls need to be made via a proxy sever, set USE_PROXY flag to true,  <br>
+    ADDRES to proxy server IP address, and PORT to port number of the server in @proxy_info hash in the profile class.
+        </p>
+    <h2>
+    Support</h2>
+	<p>
+		<a href='https://www.paypal.com/mts'>Technical Support</a>
+	</p>
+	<h2>Licensing</h2>
+	<p>
+	Read the <a href='licenses/LICENSE.txt'>license</a> file for important legal information regarding the PayPal
+	SDK. There are important points you must consider when choosing to bundle this SDK within your application.
+	</p>
+	Copyright (c) 2005 PayPal, Inc.
+</body>
+</html>

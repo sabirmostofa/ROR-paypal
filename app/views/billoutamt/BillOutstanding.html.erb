@@ -1,0 +1,25 @@
+<div id="page">
+<h3 align=center>Billing Outstanding Amount</h3>  
+<%= javascript_include_tag 'creditcard' %>
+
+<%=  form_tag (billOutAmt_path, :method=>'post', :multipart => true, :id =>'billoutstandingForm', :name => 'billoutstandingForm') do %>
+<%= hidden_field_tag 'PAYMENTACTION', @payment_action %>
+
+    <table align="center">
+<tr>
+    <td><label for="profileID">Profile ID:</label></td>
+<td><%= text_field_tag( "profileID", value = '',:size => 30, :maxlength => 32) %>(Required) </td>  
+</tr>
+<tr> 
+    <td><label for="amt">Amount:</label></td>
+<td><%= text_field_tag( "amt", value = '',:size => 30, :maxlength => 32) %></td>   
+</tr>
+<tr>
+    <td></td><td><%= submit_tag('Submit')%></td> 
+</tr>
+    <%end -%> 
+</table>
+<b><%= link_to "Recurring Payments Home", {:controller =>"recurringpayment", :action => "RPlinks"}, :id => 'RPLink' %></b>
+</div>
+
+

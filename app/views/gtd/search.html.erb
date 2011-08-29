@@ -1,0 +1,19 @@
+<div id="page">
+<h3 align="center">GetTransactionDetails</h3>  
+
+<%=  form_tag (getTransactionDetails_path, :method=>'post', :multipart => true, :id =>'GetTransactionDetailsForm', :name => 'GetTransactionDetailsForm') do %>
+<table align="center">
+<tr>
+<td>
+    <label for="transactionID">Transaction ID:</label> </td> <td><%= text_field_tag( "transactionID", value = '46S32194SV5288528',:size => 30, :maxlength => 32) %></td>
+</tr>
+<tr>
+     
+    <td></td><td><%= submit_tag('Search')%></td> 
+</tr> 
+</table>  
+<%end%>
+<%= link_to "Home", {:controller =>"wppro", :action => "index"}, :id => 'CallsLink' %>
+</div>  
+
+

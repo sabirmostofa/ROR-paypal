@@ -1,0 +1,29 @@
+<div id="page">
+<h4 align="center">Review Order</h4>  
+<h3 align="center">Step3: DoExpressCheckoutPayment</h3>  
+<dl>
+<%=  form_tag (ecstep3_path, :method=>'post', :multipart => true) do %>
+
+ <table align="center">	
+<% @response.each do |k,v| %>
+<tr><td><%= "#{k}" %>:</td><td><%= "#{v}" %></td>
+ <% end -%>
+</table>
+    <%= hidden_field_tag 'TOKEN', @TOKEN %>
+    <%= hidden_field_tag 'PAYERID', @PAYERID %>
+    <dt></dt><dd><%= submit_tag('Pay')%></dd> 
+<%end%>    
+</dl>
+  <%= link_to "Home", {:controller =>"wppro", :action => "index"}, :id => 'CallsLink' %>
+</div>
+
+
+
+	
+       
+		
+      
+        
+
+
+

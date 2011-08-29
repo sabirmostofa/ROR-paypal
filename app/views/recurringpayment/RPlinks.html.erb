@@ -1,0 +1,15 @@
+<div id="page">
+<h3>Recurring Payments Samples</h3>
+<dl>
+
+<p align="center"><%= link_to "Create Recurring Paymants Profile",:controller =>"rpprofile" , :action => "begin",:id => @rpLink%></p>
+
+<p align="center"><%= link_to "Manage Recurring Payments Profile Status",:controller =>"manageprofile" , :action => "begin",:id => @rpmanageLink%></p>
+
+<p align="center"><%= link_to "Get Recurring Payments profile Details",:controller =>"rpdetails" , :action => "begin",:id => @RPprofileDetailsLink%></p>
+
+<p align="center"><%= link_to "Bill Outstanding amount",:controller =>"billoutamt" , :action => "begin",:id => @billoutstandingLink%></p>
+</dl>
+<b><%= link_to "Home", {:controller =>"wppro", :action => "index"}, :id => 'CallsLink' %></b>
+
+</div>

@@ -1,0 +1,25 @@
+<div id="page">
+<h3 align="center">Do Void API</h3>  
+<%=  form_tag (doVoid_path, :method=>'post', :multipart => true, :id =>'DoVoidForm', :name => 'DoVoidForm') do %>
+
+<table align="center">
+<tr>
+<td>
+    <label for="authorization_id">Authorization ID:</label>
+</td> <td> 
+<%= text_field_tag( "authorization_id", value = @transaction_id,:size => 30, :maxlength => 32) %>
+</td>
+</tr>
+<tr>
+    <td><label for="note">Note:</label> </td>
+    <td><%= text_area_tag 'note', nil, :rows => 4, :cols => 30 %></td> 
+</tr>
+<tr>
+    <td></td><td><%= submit_tag('Submit')%></td>  
+</tr>
+</table>  
+<%end%>
+<%= link_to "Home", {:controller =>"wppro", :action => "index"}, :id => 'CallsLink' %>
+</div>  
+
+

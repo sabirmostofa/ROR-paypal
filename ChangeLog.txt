@@ -1,0 +1,8 @@
+PayPal NVP Web Samples for Ruby on Rails
+Change Log 
+=====================================================================================================================================
+Version 1.0.0 - 29/11/2010
+1 - SDK for Merchant web service APIs.
+3 - A simplistic reference implementation (web samples) of the APIs using ROR.
+5 - Logging. All the requests and responses are logged to paypal.log file.
+=====================================================================================================================================

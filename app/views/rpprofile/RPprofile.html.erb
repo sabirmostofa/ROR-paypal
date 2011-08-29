@@ -1,0 +1,113 @@
+<div id="page">
+<h3 align=center>Create Recurring Payment Profile</h3>  
+<%= javascript_include_tag 'creditcard' %>
+
+<%=  form_tag (doRpprofile_path, :method=>'post', :multipart => true, :id =>'DoDirectPaymentForm', :name => 'DoDirectPaymentForm') do %>
+<%= hidden_field_tag 'PAYMENTACTION', @payment_action %>
+<table align="center">
+
+ <tr>
+    <td><label for="firstName">First Name:</label></td>
+    <td><%= text_field_tag( "firstName", value = 'John',:size => 30, :maxlength => 32) %></td>
+ </tr>
+
+ <tr>
+    <td><label for="lastName">Last Name:</label></td>
+    <td><%= text_field_tag( "lastName", value = 'Doe',:size => 30, :maxlength => 32) %></td>
+ </tr>
+
+
+	<tr>
+		<td><label for="creditCardType">Card Type:</label></td>
+		<td> <%= select_tag("creditCardType", options_for_select(["Visa","MasterCard", "Discover", "Amex"],"Visa"),{:onChange => 'generateCC(this.form)'} ) %> </td>
+	</tr>
+
+	<tr>
+		<td><label for="creditCardNumber">Card Number:</label></td>
+            <td><%=text_field_tag("creditCardNumber" ,'', {:size => 19, :maxlength => 19,:value=>'4623226975828898'})%> </td>
+	</tr>
+<tr>  
+    <td><label for="Expiration Date">Expiration Date:</label></td><td>   <%=month_select_for(:rpprofile) %>  <%=year_select_for(:rpprofile) %> </td>
+</tr>
+<tr>   
+    <td><label for="cvv2Number">Card Verification Number:</label></td>
+<td><%= text_field_tag( "cvv2Number", value = '962',:size => 4, :maxlength => 4) %></td>  
+</tr>
+<tr>
+<td></td>
+<td align="center">  
+Profile Details:
+</td>
+</tr>
+<tr>
+<td><label for="description">Profile Description:</label></td><td>
+<%= text_field_tag( "description", value = 'Welcome to the world of shopping where you get anything',:size => 50, :maxlength => 32) %>
+ </td>
+</tr>
+<tr>
+<td><label for="BILLINGPERIOD">Billing Period:</label></td>
+<td> <%= select_tag("BILLINGPERIOD", options_for_select(["Day","Week", "SemiMonth", "Month"],"Day")) %></td>
+</tr>
+<tr>
+<td><label for="BILLINGFREQUENCY">Billing Frequency:</label></td>
+<td>
+<%= text_field_tag( "BILLINGFREQUENCY", value = '4',:size => 3, :maxlength => 3) %>
+ </td>
+</tr>
+<tr>
+<td><label for="TOTALBILLINGCYCLES">Total Billing Cycles:</label></td>
+
+<td>
+<%= text_field_tag( "TOTALBILLINGCYCLES", value = '4',:size => 3, :maxlength => 32) %> </td>
+</tr>
+<tr>
+<td><label for="PROFILESTARTDATE">Profile Start Date:</label></td>
+<td>    
+<%=day_select_for(:rpprofile) %>  <%=month_select_for(:rpprofile) %>  <%=year_select_for(:rpprofile) %> </td>  
+</tr> 
+
+    
+    <tr>
+<td></td>
+<td align="center">   
+    Billing Address:
+</td>
+</tr>
+<tr>    
+    <td><label for="address1">Address 1:</label></td>
+	<td><%= text_field_tag( "address1", value = '1 Main St',:size => 30, :maxlength => 100) %></td>    
+</tr>
+
+<tr>    
+    <td><label for="address2">Address 2:</label></td>
+	<td><%= text_field_tag( "address2", value = '',:size => 30, :maxlength => 100) %></td>    
+</tr>
+
+<tr>    
+    <td><label for="city">City:</label></td>
+	<td><%= text_field_tag( "city", value = 'San Jose',:size => 30, :maxlength => 100) %></td>    
+</tr>
+<tr>  
+    <td><label for="state">State:</label></td>
+<td><%=state_select_for(:rpprofile) %>   </td>	
+</tr>
+
+<tr>    
+    <td><label for="zip">Zip Code:</label></td>
+	<td><%= text_field_tag( "zip", value = '95131',:size => 30, :maxlength => 32) %>(5 or 9 digits)</td>    
+</tr>
+<tr>   
+    <td><label for="countrycode">Country: </label></td>
+    <td>US </td>   
+</tr>
+<tr>    
+    <td><label for="amount">Amount:</label></td>
+	<td><%= text_field_tag( "amount", value = '1.00',:size => 4, :maxlength => 7) %>USD</td>    
+</tr>
+<tr>          
+    <td></td><td><%= submit_tag('Submit')%></td> 
+</tr>
+</table>
+    <%end -%> 
+<b><%= link_to "Recurring Payments Home", {:controller =>"recurringpayment", :action => "RPlinks"}, :id => 'RPLink' %></b>
+</div>

@@ -1,0 +1,2 @@
+module GtdHelper
+end

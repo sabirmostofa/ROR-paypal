@@ -1,0 +1,25 @@
+<div id="page">
+<h3 align="center">Do Authorization API</h3>  
+
+<%=  form_tag (doAuthorization_path, :method=>'post', :multipart => true, :id =>'DoAuthorizationForm', :name => 'DoAuthorizationForm') do %>
+<table align="center">
+<tr>
+    <td><label for="authorization_id">Order ID:</label> </td>
+ <td>
+ <%= text_field_tag( "authorization_id", value = @transaction_id) %>
+ </td>
+</tr>
+
+<tr>
+    <td><label for="amount">Amount:</label> </td>
+     <td>  
+ <%= text_field_tag( "amount", value = @amount,:size => 5,:maxlength => 7) %>
+    <%=currency_select_for(:authorization) %>(Required) </td>
+</tr>
+<tr>
+    <td></td><td><%= submit_tag('Submit')%></td>    
+</tr>
+<%end%>
+</table>
+<%= link_to "Home", {:controller =>"wppro", :action => "index"}, :id => 'CallsLink' %>
+</div>  

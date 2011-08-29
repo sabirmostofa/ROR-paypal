@@ -1,0 +1,64 @@
+
+<font size=2 color=black face=Verdana>
+<h4 align="center">Transaction Search Results</h4></font>
+
+    <table class="api">    
+        <tr>
+            <td colspan="6" align=right>           
+             <% if @total_records > 1 %>
+              Results 1 - <%=@total_records%>
+             <%else %> 
+             Results 0
+             <%end %>
+            </td>
+        </tr>
+        <tr>
+            <td >
+            </td>
+            <td >
+                <b>ID</b></td>
+            <td>
+                <b>Time </b></td>
+            <td >
+                <b>Status<b></td>
+            <td >
+                <b>Payer Name</b></td>
+            <td >
+                <b>Gross Amount</b></td>
+        </tr>        
+        <%
+		 i = 0;
+		 @total_records.times  do 
+	    %>	   
+        <tr>
+            <td>
+                <%=i+1%>
+            </td>
+            <td>
+             <a id="TransactionDetailsLink0"> <%= link_to @response["L_TRANSACTIONID"+i.to_s], :controller => "gtd", :action => "get_transaction_details", :transactionID => @response["L_TRANSACTIONID"+i.to_s] %> </a>
+            </td>
+            <td>
+                <%=@response["L_TIMESTAMP"+i.to_s] %></td>
+            <td>
+                <%=@response["L_STATUS"+i.to_s]    %></td></td>
+            <td>
+                <%=@response["L_NAME"+i.to_s]      %></td></td>            
+            </td>
+            <td>
+                USD<%=@response["L_AMT"+i.to_s]   %></td>
+            </td>
+        </tr>
+      <% i += 1%>
+      <% end %> 
+     
+    	    
+   <tr><td alig="left"><%= link_to "Home", {:controller =>"wppro", :action => "index"}, :id => 'CallsLink' %> </td>
+</tr> 
+</table>
+
+
+
+
+
+
+

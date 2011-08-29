@@ -1,0 +1,8 @@
+h2 { text-align: center; }
+#page { margin: 0 auto; width: 500px; }
+form dl { overflow: auto; }
+form dl dt { float: left; width: 30%; text-align: right; margin: 5px 0 0 0; }
+form dl dd { margin: 5px 0 0 0; }
+table { width: 100%;}
+table tr th { background-color: #369; color: #fff; font-weight: bold; }
+table tr.even td { background-color: #eee; }

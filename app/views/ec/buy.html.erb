@@ -1,0 +1,125 @@
+<div id="page">
+<title>PayPal Ruby SDK - Simplified Shopping Cart Page for a Spiritual Store</title>
+<h3 align="center">Express Checkout APIs- SetExpressCheckout</h3>
+<%=  form_tag (ecstep1_path, :method=>'post', :multipart => true, :id =>'ExpresscheckoutSaleForm', :name => 'ExpresscheckoutSaleForm') do %>
+       
+<p align="center"><%= link_to "You must be logged into Developer Central",@DEV_CENTRAL_URL, :popup =>true %> </p>         
+<%= hidden_field_tag 'PAYMENTACTION', @payment_action %>
+    <table align="center">
+  
+            <th>Shopping cart Products:</th>
+            <tr>
+    	                <td class="field">
+    	                    CDs:</td>
+    	                <td>
+<%= text_field_tag( "L_NAME1", value = 'Path To Nirvana',:size => 30, :maxlength => 32) %>
+</td>
+    	            
+    	        
+    	            <td class="field"> Amount:  </td>
+    	            <td>
+<%= text_field_tag( "L_AMT1", value = '39.00',:size => 30, :maxlength => 32) %>
+ </td>
+    	              
+    	                 <td class="field">
+    	                Quantity:   </td>
+    	            <td>
+<%= text_field_tag( "L_QTY1", value = '2',:size => 30, :maxlength => 32) %>
+ </td>
+    	               
+    	        </tr>
+    	         <tr>
+    	                <td class="field">
+    	                    Books:</td>
+    	                <td> 
+<%= text_field_tag( "L_NAME0", value = 'Know Thyself',:size => 30, :maxlength => 32) %>
+</td>
+    	           
+    	        
+    	            <td class="field">
+    	                Amount: <br /> </td>
+    	            <td>
+<%= text_field_tag( "L_AMT0", value = '9.00',:size => 5, :maxlength => 32) %>
+
+</td>
+    	               
+    	                 <td class="field">
+    	                Quantity:   </td>
+    	               <td>  
+<%= text_field_tag( "L_QTY0", value = '2',:size => 3, :maxlength => 32) %>
+ </td>
+    	               
+        </tr>
+	<tr>
+	<td class="field" width="52">CurrencyCode</td>
+	<td><select name="currency">
+			<option value="USD" selected>USD</option>
+			<option value="GBP">GBP</option>
+			<option value="EUR">EUR</option>
+			<option value="JPY">JPY</option>
+			<option value="CAD">CAD</option>
+			<option value="AUD">AUD</option>
+		</select> </td>
+	</tr>
+    </table>
+           <br/><br/>
+           <table align="center">
+           <th>Ship To:</th>
+            <tr>
+                    <td class="field">
+                         Name:</td>
+                    <td>
+<%= text_field_tag( "RECEIVERNAME", value = 'True Seeker',:size => 30, :maxlength => 32) %>
+
+</td>
+                </tr>
+                <tr>
+                    <td class="field">
+                        Street:</td>
+                    <td>
+<%= text_field_tag( "SHIPTOSTREET", value = '111 Bliss Ave',:size => 30, :maxlength => 32) %>
+
+</td>
+                </tr>
+                <tr>
+                    <td class="field">
+                        City:</td>
+                    <td>
+<%= text_field_tag( "SHIPTOCITY", value = 'San Jose',:size => 30, :maxlength => 32) %>
+
+</td>
+                </tr>
+                <tr>
+                    <td class="field">
+                        State:</td>
+                    <td>
+<%= text_field_tag( "SHIPTOSTATE", value = 'CA',:size => 30, :maxlength => 32) %>
+
+</td>
+                </tr>
+                <tr>
+                    <td class="field">
+                        Country:</td>
+                    <td>
+
+<%= text_field_tag( "SHIPTOCOUNTRY", value = 'US',:size => 30, :maxlength => 32) %>
+
+</td>
+                </tr>
+                <tr>
+                    <td class="field">
+                        Zip Code:</td>
+                    <td>
+<%= text_field_tag( "SHIPTOZIP", value = '95128',:size => 30, :maxlength => 32) %>
+
+</td>
+            </tr>
+    <dt></dt><dd>   <input type="image" name="submit" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /> </dd>
+    
+    </table>
+  <%end%>
+  
+  <%= link_to "Home", {:controller =>"wppro", :action => "index"}, :id => 'CallsLink' %>
+</div>
+ 
+   

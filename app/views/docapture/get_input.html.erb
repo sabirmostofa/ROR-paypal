@@ -1,0 +1,48 @@
+<div id="page">
+<h3 align="center">Do Capture API</h3>  
+
+<%=  form_tag (doCapture_path, :method=>'post', :multipart => true, :id =>'DoCaptureForm', :name => 'DoCaptureForm') do %>
+
+<table align="center">
+<tr>
+      <td><label for="authorization_id">Authorization ID:</label> </td>       	<td> <%= text_field_tag( "authorization_id", value = @transaction_id) %></td>
+</tr>
+<tr>
+    <td><label for="CompleteCodeType">Complete Code Type:</label></td> 
+
+	<td><select name="CompleteCodeType">
+			<option value="Complete" selected>Complete</option>
+			<option value="NotComplete">NotComplete</option>
+		</select> </td>
+</tr>
+<tr>
+    <td><label for="amount">Amount:</label> </td> <td>   
+<%= text_field_tag( "amount", value = @amount,:size => 5, :maxlength => 7) %>
+     </td>
+</tr>
+<tr>
+<td>
+    <label for="currency"></label> 
+</td>
+<td>
+     <%=select_tag("currency", options_for_select(["USD", "GBP","EUR","JPY","CAD","AUD"],"USD"))  %>  </td>
+</tr>
+<tr>
+    <td><label for="invoice_id">Invoice ID:</label> </td>
+ <td>  
+<%= text_field_tag( "invoice_id", value = '') %>
+</td>
+</tr>
+<tr> 
+    <td><label for="note">Note:</label> </td> <td>  
+<%= text_area_tag 'note', nil, :rows => 4, :cols => 30 %>
+
+ </td>
+<tr>
+<tr> 
+    <td></td><td><%= submit_tag('Submit')%></td>    
+</tr>
+</table>
+<%end%>
+<%= link_to "Home", {:controller =>"wppro", :action => "index"}, :id => 'CallsLink' %>
+</div>  

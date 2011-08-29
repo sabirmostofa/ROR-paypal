@@ -1,0 +1,37 @@
+<div id="page">
+<h3 align="center">RefundTransaction API</h3>  
+
+<%=  form_tag (doRefund_path, :method=>'post', :multipart => true, :id =>'RefundForm', :name => 'RefundForm') do %>
+<table align="center">
+    <td><label for="transactionID">Transaction ID:</label> </td> <td>  
+<%= text_field_tag( "transactionID", value = @transaction) %>
+ </td>
+</tr>
+<tr>    
+    <td><label for="refundType">Refund Type: </label></td> <td>
+<%=select_tag("refundType", options_for_select(["Full", "Partial"],"Full"))  %>
+ </td>
+</tr>
+<tr>
+    <td><label for="amount">Amount:</label> </td> 
+    <td><%= text_field_tag( "amount", value ="0.00",  :size =>5, :maxlength => 7) %>
+    <%=currency_select_for(:refund)%>(Required if Partial Refund) </td>
+</tr>
+<tr>
+    <td><label for="invoice_id">Memo:</label> </td>
+    <td><%= text_area_tag 'memo', nil, :rows => 4, :cols => 30 %> </td> 
+</tr>
+<tr>
+    <td></td><td><%= submit_tag('Submit')%></td> 
+</tr>
+<tr>
+<td align="left"><%= link_to "Home", {:controller =>"wppro", :action => "index"}, :id => 'CallsLink' %></td>
+</tr>
+</table>
+    <%end%>
+</dl>
+
+</div>
+
+              
+           

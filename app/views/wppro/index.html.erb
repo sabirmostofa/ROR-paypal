@@ -1,0 +1,39 @@
+<div id="page">
+ <h2 align="center">Welcome to Ruby on Rails SDK Web Samples</h2>
+ <h3 align="center">Website Payments Pro Samples</h3>
+ <dl>
+ <p align="center"><%= link_to "DoDirectPayment",:controller =>"dcc" , :action => "begin" ,:paymentaction => 'sale',:id => @DoDirectPaymentSaleLink%> - Sale</p>
+ <p align="center"><%= link_to "DoDirectPayment",:controller =>"dcc" , :action => "begin" ,:paymentaction => 'Authorization',:id => @DoDirectPaymentAuthorizationLink%> - Authorization</p>
+ <p align="center"><%= link_to "ExpressCheckout",:controller =>"ec" , :action => "begin" ,:paymentaction => 'Sale',:id => @ExpressCheckoutSaleLink%> - Sale</p>
+ <p align="center"><%= link_to "ExpressCheckout",:controller =>"ec" , :action => "begin" ,:paymentaction => 'Authorization',:id => @ExpressCheckoutAuthorizationLink%> - Authorization</p>
+ <p align="center"><%= link_to "ExpressCheckout",:controller =>"ec" , :action => "begin" ,:paymentaction => 'Order',:id => @ExpressCheckoutOrderLink%> -Order</p>
+ <p align="center"><%= link_to "DoDirectPayment - 3D Secure",:controller =>"threedsecure/threedsecure" , :action => "begin" ,:paymentaction => 'Sale',:id => @ThreeDsecureLink%> -Sale</p>
+ </dl>
+
+ <h3 align="center">Administrative Samples</h3>
+ <dl>
+<p align="center"><%= link_to "DoAuthorization",:controller =>"doauthorization" , :action => "get_input",:id => @DoAuthorizationLink%></p>
+<p align="center"><%= link_to "DoCapture",:controller =>"docapture" , :action => "get_input",:id => @DoCaptureLink%></p>
+
+<p align="center"><%= link_to "DoVoid",:controller =>"dovoid" , :action => "get_input",:id => @DoVoidLink%></p>
+
+<p align="center"><%= link_to "GetTransactionDetails",:controller =>"gtd" , :action => "search",:id => @GetTransactionDetailsLink%></p>
+
+<p align="center"><%= link_to "GetBalance",:controller =>"getbalance" , :action => "get_input",:id => @GetBalanceLink%></p>
+
+<p align="center"><%= link_to "TransactionSearch",:controller =>"ts" , :action => "get_input",:id => @TransactionSearchLink%></p>
+
+<p align="center"><%= link_to "RefundTransaction",:controller =>"refund" , :action => "get_input",:id => @RefundTransactionLink%></p>
+
+<p align="center"><%= link_to "Reauthorization",:controller =>"reauth" , :action => "get_input",:id => @ReAuthorizationLink%></p>
+
+<p align="center"><%= link_to "MassPay",:controller =>"masspay" , :action => "mass_pay",:id => @MassPayLink%></p>
+
+
+ </dl>
+ <h3 align="center">Recurring Payments Samples</h3>
+ <dl>
+<p align="center"><%= link_to "Recurring Payments",:controller =>"recurringpayment" , :action => "begin",:id => @RecurringpaymentLink%></p>
+ </dl>
+</div>
+         

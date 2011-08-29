@@ -1,0 +1,11 @@
+<div id="page">
+<h3 align="center">Get Balance API</h3>  
+<%=  form_tag (getBalance_path, :method=>'post', :multipart => true, :id =>'GetBalanceForm', :name => 'GetBalanceForm') do %>
+<table align="center">
+<tr>
+    <td></td><td><%= submit_tag('Click Here to know your Balance')%></td> 
+</tr>
+</table>   
+<%end%>
+<%= link_to "Home", {:controller =>"wppro", :action => "index"}, :id => 'CallsLink' %>
+</div>  

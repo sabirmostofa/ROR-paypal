@@ -1,0 +1,25 @@
+<div id="page">
+<h3 align=center>Manage Recurring Payment Profile Status</h3>  
+<%= javascript_include_tag 'creditcard' %>
+
+<%=  form_tag (manageProfile_path, :method=>'post', :multipart => true, :id =>'manageprofileForm', :name => 'manageprofileForm') do %>
+<%= hidden_field_tag 'PAYMENTACTION', @payment_action %>
+    <table align="center">
+    <tr>
+    <td><label for="profileID">Profile ID:</label></td>
+<td><%= text_field_tag( "profileID", value = '',:size => 30, :maxlength => 32) %>(Required)</td>
+</tr>
+<tr>
+    <td><label for="Action">Action:</label></td>
+    <td> <%= select_tag("Action", options_for_select(["Cancel","Suspend", "Reactivate"],"Cancel")) %>
+</td>
+</tr>
+<tr>    
+    <td></td><td><%= submit_tag('Submit')%></td> 
+</tr>
+    <%end -%> 
+</table>
+<%= link_to "Recurring Payments Home", {:controller =>"recurringpayment", :action => "RPlinks"}, :id => 'RPLink' %>
+
+</div>
+

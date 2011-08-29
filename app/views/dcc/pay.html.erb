@@ -1,0 +1,92 @@
+<div id="page">
+<h3 align="center">Do Direct Payment API</h3>
+<%= javascript_include_tag 'creditcard' %>
+
+<%=  form_tag (dcc1_path, :method=>'post', :multipart => true, :id =>'DoDirectPaymentForm', :name => 'DoDirectPaymentForm') do %>
+<%= hidden_field_tag 'PAYMENTACTION', @payment_action %>
+<table  align="center">
+	<tr>
+ 		<td><label for="firstName">First Name:</label></td>
+		<td><%= text_field_tag( "firstName", value = 'Ruby',:size => 30, :maxlength => 32) %> </td>
+	</tr>
+
+	<tr>
+ 		<td><label for="lastName">Last Name:</label></td>
+		<td><%= text_field_tag( "lastName", value = 'Rails',:size => 30, :maxlength => 32) %> </td>
+	</tr>
+
+	<tr>
+		<td><label for="creditCardType">Card Type:</label></td>
+		<td> <%= select_tag("creditCardType", options_for_select(["Visa","MasterCard", "Discover", "Amex"],"Visa"),{:onChange => 'generateCC(this.form)'} ) %> </td>
+	</tr>
+
+	<tr>
+		<td><label for="creditCardNumber">Card Number:</label></td>
+            <td><%=text_field_tag("creditCardNumber" ,'', {:size => 19, :maxlength => 19,:value=>'4623226975828898'})%> </td>
+	</tr>
+
+	<tr>
+		<td><label for="Expiration Date">Expiration Date:</label></td>
+		<td><%=month_select_for(:dcc) %>  <%=year_select_for(:dcc) %></td>
+	</tr>
+
+	<tr>
+		<td><label for="cvv2Number">Card Verification Number:</label></td>
+		<td><%= text_field_tag( "cvv2Number", value = '962',:size => 4, :maxlength => 4) %> </td>
+	</tr>
+
+	<tr>
+ 		<td>Billing Address:</td>
+	</tr>
+	<tr>
+ 		<td><label for="address1">Address 1:</label></td>
+		<td><%= text_field_tag( "address1", value = '1 Main St',:size => 30, :maxlength => 100 ) %> </td>
+	</tr>
+
+	<tr>
+ 		<td><label for="address2">Address 2:</label></td>
+		<td><%= text_field_tag( "address2", value = '',:size => 30, :maxlength => 100 ) %> (Optional) </td>
+	</tr>
+
+	<tr>
+ 		<td><label for="city">City:</label></td>
+		<td><%= text_field_tag( "city", value = 'San Jose',:size => 30, :maxlength => 100 ) %> </td>
+	</tr>
+
+	<tr>
+		<td><label for="state">State:</label></td>
+		<td><%=state_select_for(:dcc) %></td>
+	</tr>
+
+	<tr>
+ 		<td><label for="zip">Zip Code:</label></td>
+		<td><%= text_field_tag( "zip", value = '95131',:size => 30, :maxlength => 100 ) %> </td>
+	</tr>
+
+	<tr>
+ 		<td><label for="countrycode">Country:</label></td>
+		<td>US</td>
+	</tr>
+
+	<tr>
+ 		<td><label for="amount">Amount:</label></td>
+		<td><%= text_field_tag( "amount", value = '1.00',:size => 4, :maxlength => 7 ) %> </td>
+	</tr>
+
+	<tr>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="center">
+      	 <%=  submit_tag 'Submit'  %> 
+		</td>
+	</tr>
+	<tr align="left">
+		<td><%= link_to "Home", :controller =>"wppro", :action => "index", :id => @CallsLink %></td>
+	</tr>
+
+</table>
+<% end %>
+
+</div>
+

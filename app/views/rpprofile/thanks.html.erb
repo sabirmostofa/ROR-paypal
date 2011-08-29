@@ -1,0 +1,23 @@
+
+
+<div id="page">
+<h3 align="center">Create Recurring Payment Profile</h3>		
+<dl>
+<dl>	
+<table align="center">	
+<% @response.each do |k,v| %>
+<tr><td><%= "#{k}" %>:</td><td><%= "#{v}" %></td>
+ <% end -%>
+</table>
+</dl> 
+<b>
+<p align="center"><%= link_to "GetRecurringPaymentsProfileDetails",:controller =>"rpdetails" , :action => "begin",:profileId=> @profileId,:id => @RPdetailsLink%></p></b>
+ 
+   <p align="left"> <b><%= link_to "Recurring Payments Home", {:controller =>"recurringpayment", :action => "RPlinks"}, :id => 'RPLink' %></b></p>
+
+     
+</div>
+
+
+
+

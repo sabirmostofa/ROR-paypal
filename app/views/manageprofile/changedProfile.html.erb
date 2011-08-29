@@ -1,0 +1,23 @@
+
+<div id="page">
+<h3 align=center>Manage RecurringPayments Profile Status</h3>		
+<dl>	
+<table align="center">	
+<% @response.each do |k,v| %>
+<tr><td><%= "#{k}" %>:</td><td><%= "#{v}" %></td>
+ <% end -%>
+
+</dl>
+
+<tr><td><%= link_to "Get Recurring Payments Details", {:controller =>"rpdetails", :action => "RPdetails", :profileId => @profileId}, :id => 'RPLink' %></td></tr>
+</table>
+</dl>   
+<b> <%= link_to "Recurring Payments Home", {:controller =>"recurringpayment", :action => "RPlinks"}, :id => 'RPlinks' %></b>
+     
+</div>
+
+
+
+
+
+
